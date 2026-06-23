@@ -2,7 +2,7 @@ const REPO_OWNER = 'Lixjd';
 const REPO_NAME = 'crm-discordka';
 const BRANCH = 'main';
 const DATA_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/data/`;
-const BOT_API = 'http://mango.fps.ms:8080/api/command';  // ← ИСПРАВЛЕНО!
+const BOT_API = 'http://mango.fps.ms:10456/api/command';  // ← 10456!
 
 async function loadStaff() {
     try {

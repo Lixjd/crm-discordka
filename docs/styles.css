@@ -1,0 +1,86 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #1a1b1e;
+    color: #d4d4d4;
+    display: flex;
+    min-height: 100vh;
+}
+.sidebar {
+    width: 220px;
+    background: #2b2d31;
+    padding: 20px 12px;
+    border-right: 1px solid #3f4147;
+    flex-shrink: 0;
+}
+.sidebar h2 { color: #fff; margin-bottom: 20px; }
+.sidebar button {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #b5bac1;
+    padding: 10px 14px;
+    text-align: left;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+.sidebar button:hover { background: #3a3c43; color: #fff; }
+.sidebar button.active { background: #404249; color: #fff; }
+.main { flex: 1; padding: 30px; overflow-y: auto; }
+.tab { display: none; animation: fadeIn 0.3s; }
+.tab.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+h2 { color: #fff; margin-bottom: 20px; }
+.card {
+    background: #2b2d31;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    border: 1px solid #3f4147;
+}
+.card h3 { color: #fff; margin-bottom: 12px; font-size: 16px; }
+.staff-item {
+    background: #1e1f22;
+    padding: 8px 14px;
+    border-radius: 6px;
+    margin-bottom: 4px;
+    border-left: 3px solid #5865f2;
+}
+.role-group { margin-bottom: 12px; }
+.role-group h4 { color: #8ea4d1; font-size: 13px; margin-bottom: 6px; }
+input, select {
+    background: #1e1f22;
+    border: 1px solid #3f4147;
+    color: #d4d4d4;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+}
+input:focus, select:focus { border-color: #5865f2; outline: none; }
+button {
+    background: #5865f2;
+    color: #fff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+button:hover { background: #4752c4; }
+.reprimand-item {
+    background: #1e1f22;
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-bottom: 4px;
+    border-left: 3px solid #f0b232;
+}
+.reprimand-item.strict { border-left-color: #da373c; }
+@media (max-width: 768px) {
+    body { flex-direction: column; }
+    .sidebar { width: 100%; display: flex; flex-wrap: wrap; gap: 4px; padding: 10px; }
+    .sidebar button { width: auto; padding: 6px 12px; }
+}

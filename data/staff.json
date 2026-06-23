@@ -1,0 +1,5 @@
+[
+    { "id": 1, "nick": "Alex", "tag": "@alex_dev", "role": "Разработчик" },
+    { "id": 2, "nick": "Mira", "tag": "@mira_mod", "role": "Модератор" },
+    { "id": 3, "nick": "Tony", "tag": "@tony_lead", "role": "Лидер" }
+]

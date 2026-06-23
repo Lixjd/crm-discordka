@@ -2,7 +2,7 @@ const REPO_OWNER = 'Lixjd';
 const REPO_NAME = 'crm-discordka';
 const BRANCH = 'main';
 const DATA_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/data/`;
-const BOT_API = 'http://mango.fps.ms:8080/api/command';
+const BOT_API = 'http://mango.fps.ms:8080/api/command';  // ← ИСПРАВЛЕНО!
 
 async function loadStaff() {
     try {
@@ -45,9 +45,14 @@ async function sendCommand(command, params) {
             body: JSON.stringify({ command, params })
         });
         const result = await response.json();
-        alert(result.status === 'ok' ? '✅ Команда отправлена!' : '❌ Ошибка: ' + result.message);
+        if (result.status === 'ok') {
+            alert('✅ Команда отправлена!');
+        } else {
+            alert('❌ Ошибка: ' + result.message);
+        }
     } catch (error) {
-        alert('❌ Бот не отвечает.');
+        alert('❌ Бот не отвечает. Проверьте подключение.');
+        console.error('Ошибка:', error);
     }
 }
 
@@ -55,7 +60,7 @@ function sendReprimand() {
     const user = document.getElementById('userSelect').value;
     const type = document.getElementById('reprimandType').value;
     const reason = document.getElementById('reprimandReason').value;
-    if (!reason) { alert('Укажи причину!'); return; }
+    if (!reason) { alert('Укажите причину!'); return; }
     sendCommand('reprimand', { user, type, reason });
 }
 
@@ -63,7 +68,7 @@ function sendDismiss() {
     const name = document.getElementById('dismissName').value;
     const id = document.getElementById('dismissId').value;
     const reason = document.getElementById('dismissReason').value;
-    if (!name || !id) { alert('Заполни все поля!'); return; }
+    if (!name || !id) { alert('Заполните все поля!'); return; }
     sendCommand('dismiss_report', { name, static_id: id, reason });
 }
 
@@ -72,7 +77,7 @@ function sendPromotion() {
     const id = document.getElementById('promoId').value;
     const from = document.getElementById('promoFrom').value;
     const to = document.getElementById('promoTo').value;
-    if (!name || !id || !from || !to) { alert('Заполни все поля!'); return; }
+    if (!name || !id || !from || !to) { alert('Заполните все поля!'); return; }
     sendCommand('promotion_report', { name, static_id: id, from_rank: from, to_rank: to });
 }
 
@@ -80,7 +85,7 @@ function sendVB() {
     const name = document.getElementById('vbName').value;
     const id = document.getElementById('vbId').value;
     const reason = document.getElementById('vbReason').value;
-    if (!name || !id) { alert('Заполни все поля!'); return; }
+    if (!name || !id) { alert('Заполните все поля!'); return; }
     sendCommand('vb_request', { name, static_id: id, reason });
 }
 
@@ -88,7 +93,7 @@ function addStaff() {
     const nick = document.getElementById('newNick').value;
     const tag = document.getElementById('newTag').value;
     const role = document.getElementById('newRole').value;
-    if (!nick || !tag || !role) { alert('Заполни все поля!'); return; }
+    if (!nick || !tag || !role) { alert('Заполните все поля!'); return; }
     sendCommand('add_staff', { nick, tag, role });
 }
 

@@ -1,6 +1,6 @@
 // ==================== КОНФИГУРАЦИЯ ====================
 // 🔥 ЗАМЕНИ НА СВОИ ДАННЫЕ!
-const REPO_OWNER = 'твой_ник_на_github';   // Например: 'AlexDev'
+const REPO_OWNER = 'Lixjd';   // Например: 'AlexDev'
 const REPO_NAME = 'crm-discordka';         // Название репозитория
 const BRANCH = 'main';
 

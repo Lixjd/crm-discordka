@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 CRM Discord</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>📊 CRM</h2>
+        <button class="active" data-tab="staff">👥 Состав</button>
+        <button data-tab="reprimands">⚠️ Выговоры</button>
+        <button data-tab="commands">🤖 Команды</button>
+        <button data-tab="settings">⚙️ Настройки</button>
+    </div>
+    <div class="main">
+        <div id="staff" class="tab active">
+            <h2>👥 Состав</h2>
+            <button onclick="refreshStaff()">🔄 Обновить</button>
+            <div id="staffList"><p>Загрузка...</p></div>
+        </div>
+        <div id="reprimands" class="tab">
+            <h2>⚠️ Выговоры</h2>
+            <div class="card">
+                <select id="userSelect"></select>
+                <select id="reprimandType"><option>Устный</option><option>Строгий</option></select>
+                <input id="reprimandReason" placeholder="Причина">
+                <button onclick="sendReprimand()">Выдать</button>
+            </div>
+            <div id="reprimandList"></div>
+        </div>
+        <div id="commands" class="tab">
+            <h2>🤖 Команды</h2>
+            <div class="card">
+                <h3>📝 Рапорт на увольнение</h3>
+                <input id="dismissName" placeholder="Имя"><br>
+                <input id="dismissId" placeholder="Static ID"><br>
+                <input id="dismissReason" placeholder="Причина"><br>
+                <button onclick="sendDismiss()">Отправить</button>
+            </div>
+            <div class="card">
+                <h3>📈 Отчёт на повышение</h3>
+                <input id="promoName" placeholder="Имя"><br>
+                <input id="promoId" placeholder="Static ID"><br>
+                <input id="promoFrom" placeholder="С какого ранга"><br>
+                <input id="promoTo" placeholder="На какой ранг"><br>
+                <button onclick="sendPromotion()">Отправить</button>
+            </div>
+            <div class="card">
+                <h3>🪖 Запрос на ВБ</h3>
+                <input id="vbName" placeholder="Имя"><br>
+                <input id="vbId" placeholder="Static ID"><br>
+                <input id="vbReason" placeholder="Причина"><br>
+                <button onclick="sendVB()">Отправить</button>
+            </div>
+        </div>
+        <div id="settings" class="tab">
+            <h2>⚙️ Настройки</h2>
+            <div class="card">
+                <h3>Добавить сотрудника</h3>
+                <input id="newNick" placeholder="Ник"><br>
+                <input id="newTag" placeholder="Discord тег"><br>
+                <input id="newRole" placeholder="Роль"><br>
+                <button onclick="addStaff()">Добавить</button>
+            </div>
+            <div class="card">
+                <h3>Статус бота</h3>
+                <p id="botStatus">⏳ Проверка...</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
